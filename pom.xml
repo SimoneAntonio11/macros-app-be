@@ -28,6 +28,11 @@
 	<dependencies>
 
 		
+		<!-- Connector MySql -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
 		<!-- Apache Commons Project -->
 		<dependency>

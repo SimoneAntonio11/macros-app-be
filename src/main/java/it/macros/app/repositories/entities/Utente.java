@@ -20,11 +20,17 @@ public class Utente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "username")
 	private String username;
 
 	@Column(name = "password")
 	private String password;
+
+	@Column(name = "token_password")
+	private String token;
+
+	@Column(name = "attivo")
+	private Boolean attivo;
 
 }
