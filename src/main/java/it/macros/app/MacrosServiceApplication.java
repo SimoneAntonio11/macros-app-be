@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 @SpringBootApplication
-public class CrmServiceApplication extends SpringBootServletInitializer {
+public class MacrosServiceApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(CrmServiceApplication.class, args);
+		SpringApplication.run(MacrosServiceApplication.class, args);
 	}		
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 
-		return application.sources(CrmServiceApplication.class);
+		return application.sources(MacrosServiceApplication.class);
 	}
 
 	@Bean
