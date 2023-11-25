@@ -11,5 +11,8 @@ public interface AlimentoRepository extends JpaRepository <Alimento, Integer> {
 	
 	@Query(value = "SELECT a FROM Alimento a ORDER BY a.nome DESC")
 	public List<Alimento> list();
+	
+	@Query(value = "SELECT a FROM Alimento a WHERE a.utente.id = :id ORDER BY a.nome DESC")
+	public List<Alimento> userList(Integer id);
 
 }

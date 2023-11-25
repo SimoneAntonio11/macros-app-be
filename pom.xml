@@ -33,6 +33,13 @@
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		
+		<!-- Security Commons Project (LOCAL) -->
+		<dependency>
+			<groupId>it.macros</groupId>
+			<artifactId>SecurityCommons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<!-- Apache Commons Project -->
 		<dependency>

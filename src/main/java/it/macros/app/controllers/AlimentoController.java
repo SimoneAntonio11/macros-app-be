@@ -31,7 +31,7 @@ public class AlimentoController extends BaseController {
 	@Autowired
 	private AlimentoService alimentoService;
 	
-	@RequestMapping(value = "/alimenti", method = RequestMethod.GET, produces = ControllerMaps.JSON)
+	@RequestMapping(value = "/alimenti/list", method = RequestMethod.GET, produces = ControllerMaps.JSON)
 	public @ResponseBody HttpEntity<AlimentoListResponse> list() {
 
 		HttpEntity<AlimentoListResponse> httpEntity = null;
@@ -42,6 +42,32 @@ public class AlimentoController extends BaseController {
 		log.info("START invocation list() of controller layer");
 
 		List<Alimento> alimenti = alimentoService.list();
+
+		alimentoListResponse.setList(alimenti);
+		alimentoListResponse.setEsito(new Esito());
+		
+		httpEntity = new HttpEntity<AlimentoListResponse>(alimentoListResponse);
+
+		log.info("END invocation list() of controller layer");
+		} catch (ServiceException e) {
+			alimentoListResponse.setEsito(new Esito(e.getCode(), e.getMessage(), null));
+			httpEntity = new HttpEntity<AlimentoListResponse>(alimentoListResponse);
+		}
+
+		return httpEntity;
+	}
+	
+	@RequestMapping(value = "/alimenti/list/{id}", method = RequestMethod.GET, produces = ControllerMaps.JSON)
+	public @ResponseBody HttpEntity<AlimentoListResponse> userList(@PathVariable Integer id) {
+
+		HttpEntity<AlimentoListResponse> httpEntity = null;
+
+		AlimentoListResponse alimentoListResponse = new AlimentoListResponse();
+
+		try {
+		log.info("START invocation list() of controller layer");
+
+		List<Alimento> alimenti = alimentoService.userList(id);
 
 		alimentoListResponse.setList(alimenti);
 		alimentoListResponse.setEsito(new Esito());

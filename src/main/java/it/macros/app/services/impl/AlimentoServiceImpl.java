@@ -39,6 +39,20 @@ public class AlimentoServiceImpl implements AlimentoService{
 		return list;
 	}
 	
+	@Override
+	public List<Alimento> userList(Integer id) throws ServiceException{
+
+		List<Alimento> list = null;
+		
+		try {
+			list = alimentoRepository.userList(id);
+	} catch (Exception e) {
+		log.error("Exception occurs {}", e);
+		throw new ServiceException(ServiceErrorCode.ERRORE_GENERICO);
+	}
+		return list;
+	}
+	
 	@Override	
 	public void insert(Alimento alimento) throws ServiceException {
 		if (!alimentoValidator.validate(alimento, true)) {
