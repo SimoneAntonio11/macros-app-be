@@ -55,19 +55,19 @@ public class AlimentoServiceImpl implements AlimentoService{
 	
 	@Override	
 	public void insert(Alimento alimento) throws ServiceException {
-		if (!alimentoValidator.validate(alimento, true)) {
+		/*if (!alimentoValidator.validate(alimento, true)) {
 			log.info("Exception occurs {}", "Validation errors");
 			throw new ServiceException(ServiceErrorCode.ERRORE_VALIDAZIONE);
 		}
-		try {
+		try {*/
 		alimentoRepository.saveAndFlush(alimento);
-		} catch (DataIntegrityViolationException de) {
+		/*} catch (DataIntegrityViolationException de) {
 			log.error("Exception occurs {}", de);
 			throw new ServiceException(ServiceErrorCode.RECORD_ESISTENTE);
 		} catch (Exception e) {
 			log.error("Exception occurs {}", e);
 			throw new ServiceException(ServiceErrorCode.ERRORE_GENERICO);
-		}
+		}*/
 	}
 	
 	@Override
